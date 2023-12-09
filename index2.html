@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #sol {
+            position: absolute;
+            width: 72px;
+            height: 72px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 72px;
+            font-family: Arial, sans-serif;
+            color: #000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .planeta {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #mercurio { background-color: #e74c3c; }
+        #venus { background-color: #f39c12; }
+        #terra { background-color: #2ecc71; }
+        #marte { background-color: #e67e22; }
+        #jupiter { background-color: #3498db; }
+        #saturno { background-color: #9b59b6; }
+        #urano { background-color: #1abc9c; }
+        #netuno { background-color: #34495e; }
+    </style>
+</head>
+<body>
+
+<div id="sol">Vinicius</div>
+<div class="planeta" id="mercurio"></div>
+<div class="planeta" id="venus"></div>
+<div class="planeta" id="terra"></div>
+<div class="planeta" id="marte"></div>
+<div class="planeta" id="jupiter"></div>
+<div class="planeta" id="saturno"></div>
+<div class="planeta" id="urano"></div>
+<div class="planeta" id="netuno"></div>
+
+<script>
+    const sol = document.getElementById('sol');
+    const mercurio = document.getElementById('mercurio');
+    const venus = document.getElementById('venus');
+    const terra = document.getElementById('terra');
+    const marte = document.getElementById('marte');
+    const jupiter = document.getElementById('jupiter');
+    const saturno = document.getElementById('saturno');
+    const urano = document.getElementById('urano');
+    const netuno = document.getElementById('netuno');
+
+    function movePlanets() {
+        const time = new Date().getTime();
+        const distanceFactor = 1.05; // Aumento de 5% na distância
+
+        sol.style.transform = 'translate(-50%, -50%) rotate(' + time * 0.00005 + 'deg)';
+
+        mercurio.style.left = (50 + 10 * distanceFactor * Math.cos(0.01 * time * 0.5)) + 'vw';
+        mercurio.style.top = (50 + 5 * distanceFactor * Math.sin(0.01 * time * 0.5)) + 'vh';
+
+        venus.style.left = (50 + 20 * distanceFactor * Math.cos(0.008 * time * 0.5)) + 'vw';
+        venus.style.top = (50 + 10 * distanceFactor * Math.sin(0.008 * time * 0.5)) + 'vh';
+
+        terra.style.left = (50 + 30 * distanceFactor * Math.cos(0.006 * time * 0.5)) + 'vw';
+        terra.style.top = (50 + 15 * distanceFactor * Math.sin(0.006 * time * 0.5)) + 'vh';
+
+        marte.style.left = (50 + 40 * distanceFactor * Math.cos(0.004 * time * 0.5)) + 'vw';
+        marte.style.top = (50 + 20 * distanceFactor * Math.sin(0.004 * time * 0.5)) + 'vh';
+
+        jupiter.style.left = (50 + 50 * distanceFactor * Math.cos(0.002 * time * 0.5)) + 'vw';
+        jupiter.style.top = (50 + 25 * distanceFactor * Math.sin(0.002 * time * 0.5)) + 'vh';
+
+        saturno.style.left = (50 + 60 * distanceFactor * Math.cos(0.0015 * time * 0.5)) + 'vw';
+        saturno.style.top = (50 + 30 * distanceFactor * Math.sin(0.0015 * time * 0.5)) + 'vh';
+
+        urano.style.left = (50 + 70 * distanceFactor * Math.cos(0.001 * time * 0.5)) + 'vw';
+        urano.style.top = (50 + 35 * distanceFactor * Math.sin(0.001 * time * 0.5)) + 'vh';
+
+        netuno.style.left = (50 + 80 * distanceFactor * Math.cos(0.0005 * time * 0.5)) + 'vw';
+        netuno.style.top = (50 + 40 * distanceFactor * Math.sin(0.0005 * time * 0.5)) + 'vh';
+
+        requestAnimationFrame(movePlanets);
+    }
+
+    movePlanets();
+</script>
+
+</body>
+</html>
